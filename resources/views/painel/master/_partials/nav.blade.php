@@ -26,8 +26,12 @@
             <ul class="navbar-nav  justify-content-end">
                 <li class="nav-item d-flex align-items-center">
                     <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
-                        <i class="fa fa-user me-sm-1"></i>
-                        <span class="d-sm-inline d-none">Sair</span>
+
+                        <form method="post" action="{{route('logout')}}">
+                            @csrf
+                        <button type="submit"  class="btn btn-link">
+                            <i class="fa fa-user me-sm-1"></i>Sair</button>
+                        </form>
                     </a>
                 </li>
             </ul>

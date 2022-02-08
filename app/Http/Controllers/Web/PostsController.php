@@ -67,6 +67,7 @@ class PostsController extends Controller
     public function store(PostRequestStore $request)
     {
 
+
         try {
             $attributes = $request->validated();
            $this->postService->create($attributes);
@@ -95,7 +96,12 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = $this->postService->getById($id);
+        $categories = $this->categoryService->getAll();
+        return view('painel.posts.edit',[
+            'post' => $post,
+            'categories' =>$categories
+        ]);
     }
 
     /**
@@ -107,7 +113,14 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        try {
+            $this->postService->update($request->all(), $id);
+        }catch (\Exception $e){
+            return $e->getMessage();
+        }
+
+        return redirect()->back();
     }
 
     /**

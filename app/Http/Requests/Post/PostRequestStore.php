@@ -28,6 +28,7 @@ class PostRequestStore extends FormRequest
             'title' => 'required|string|unique:posts',
             'subtitle'=> 'nullable|string',
             'text'=> 'required',
+            'image' => 'required|string'
 
         ];
     }

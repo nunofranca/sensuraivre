@@ -167,6 +167,7 @@ return [
          */
         \App\Providers\RepositoryServiceProvider::class,
         \App\Providers\ServiceServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -230,6 +231,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'ImageMake' => Intervention\Image\Facades\Image::class
 
     ],
 

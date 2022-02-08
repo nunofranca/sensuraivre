@@ -16,11 +16,12 @@
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="align-items-center m-4">
-                            <form action="{{route('post.store')}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{route('post.update', $post->id)}}" method="POST" enctype="multipart/form-data">
                                 @csrf
+                                @method('PUT')
                                 @include('painel.posts._partials.form')
 
-                                <button type="submit" class="btn btn-primary">CADASTRAR</button>
+                                <button type="submit" class="btn btn-primary">EDITAR</button>
                             </form>
                         </div>
                     </div>

@@ -54,7 +54,7 @@ class ImagesController extends Controller
 
         $path = $file->storeAs('image/' . $folder, Str::slug($fileName) . '.' . $this->validateFileExtension($file));
 
-        $image = ImageMake::make($file)->fit(600, 450)->encode('jpg', 60);
+        $image = ImageMake::make($file)->fit(600, 450)->encode('jpg', 100);
         $image->save(storage_path('app/public/' . $path));
         return response()->json($path);
 

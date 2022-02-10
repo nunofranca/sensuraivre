@@ -4,7 +4,7 @@ namespace App\Services\Images;
 
 interface ImageServiceInterface
 {
-    public function create($request);
+    public function create($post, $image);
 
-    public function moveImage($image);
+
 }

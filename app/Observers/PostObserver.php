@@ -16,9 +16,13 @@ class PostObserver
      */
     public function creating(Post $post)
     {
-        $post['slug'] = Str::slug($post['title']);
-        $post['user_id'] = Auth::user()->id;
-        $post['tenant_id'] = Auth::user()->tenant->id;
+
+        if (Auth::check()){
+            $post['slug'] = Str::slug($post['title']);
+            $post['user_id'] = Auth::user()->id;
+            $post['tenant_id'] = Auth::user()->tenant->id;
+        }
+
 
     }
 

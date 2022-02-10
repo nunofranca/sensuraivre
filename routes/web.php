@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Web\SiteController;
+use App\Http\Controllers\Web\Site\SiteController;
 use App\Http\Controllers\Web\CategoriesController;
 use App\Http\Controllers\Web\DashboardController;
 use App\Http\Controllers\Web\ImagesController;

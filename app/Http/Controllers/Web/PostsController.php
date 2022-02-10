@@ -6,17 +6,22 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Post\PostRequestStore;
 use App\Models\Category;
 use App\Services\Categories\CategoryServiceInterface;
+use App\Services\Images\ImageServiceInterface;
 use App\Services\Posts\PostServiceInterface;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
-    private $postService, $categoryService;
+    private $postService, $categoryService, $imageService;
 
-    public function __construct(PostServiceInterface $postService, CategoryServiceInterface $categoryService)
+    public function __construct(PostServiceInterface     $postService,
+                                CategoryServiceInterface $categoryService,
+                                ImageServiceInterface    $imageService
+    )
     {
         $this->postService = $postService;
         $this->categoryService = $categoryService;
+        $this->imageService = $imageService;
     }
 
     /**
@@ -52,7 +57,7 @@ class PostsController extends Controller
 
         $categories = $this->categoryService->getAll();
 
-        return view('painel.posts.create',[
+        return view('painel.posts.create', [
             'categories' => $categories,
         ]);
 
@@ -70,8 +75,9 @@ class PostsController extends Controller
 
         try {
             $attributes = $request->validated();
-           $this->postService->create($attributes);
-           return redirect()->back();
+            $post = $this->postService->create($attributes);
+            $this->imageService->create($post, $request->image);
+            return redirect()->back();
         } catch (\Exception $e) {
             return $e->getMessage();
         }
@@ -98,9 +104,9 @@ class PostsController extends Controller
     {
         $post = $this->postService->getById($id);
         $categories = $this->categoryService->getAll();
-        return view('painel.posts.edit',[
+        return view('painel.posts.edit', [
             'post' => $post,
-            'categories' =>$categories
+            'categories' => $categories
         ]);
     }
 
@@ -116,7 +122,7 @@ class PostsController extends Controller
 
         try {
             $this->postService->update($request->all(), $id);
-        }catch (\Exception $e){
+        } catch (\Exception $e) {
             return $e->getMessage();
         }
 

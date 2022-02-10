@@ -27,20 +27,13 @@ class PostService implements PostServiceInterface
 
     public function getAllDescId()
     {
-        return $this->postRepository->getAllDescId();
+        $posts = $this->postRepository->getAllDescId();
+        return $posts->load('images');
     }
 
     public function create($attributes)
     {
-
-        $post = $this->postRepository->create($attributes);
-        $image = $this->imageService->moveImage($attributes['image']);
-
-        $post->images()->create([
-            'path' => $attributes['image']
-        ]);
-        return redirect()->back();
-
+        return $this->postRepository->create($attributes);
     }
 
     public function update($attributes, $id)

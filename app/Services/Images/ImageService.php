@@ -15,17 +15,17 @@ class ImageService implements ImageServiceInterface
         $this->imageRepository = $imageRepository;
     }
 
-    public function create($request)
+    public function create($post, $image)
     {
 
-
+       $image = Str::replace('"', '', $image);
+       $image = Str::replace('\\', '', $image);
+       $post->images()->create([
+           'path' => $image
+       ]);
 
     }
 
-    public function moveImage($image)
-    {
-
-    }
 
     private function validateFileExtension($file): string
     {

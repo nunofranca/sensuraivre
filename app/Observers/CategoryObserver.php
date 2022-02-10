@@ -15,7 +15,9 @@ class CategoryObserver
      */
     public function creating(Category $category)
     {
-        $category['tenant_id'] = Auth::user()->tenant->id;
+
+        if(Auth::check())
+            $category['tenant_id'] = Auth::user()->tenant->id;
     }
 
 

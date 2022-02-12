@@ -4,7 +4,7 @@
             <!-- Logo -->
             <div class="col-xl-3 col-lg-3 col-md-3">
                 <div class="logo">
-                    <a href="{{route('home')}}"><img width="80%" src="{{asset('assets/images/site/logo/sl.png')}}"
+                    <a href="{{route('site')}}"><img width="80%" src="{{asset('assets/images/site/logo/sl.png')}}"
                                               alt=""></a>
                 </div>
             </div>

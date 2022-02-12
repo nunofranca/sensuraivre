@@ -2,7 +2,7 @@
 <div class="main-menu d-none d-md-block">
     <nav>
         <ul id="navigation">
-            <li><a href="{{route('home')}}l">Home</a></li>
+            <li><a href="{{route('site')}}l">Home</a></li>
 {{--            <li><a href="categori.html">Category</a></li>--}}
 {{--            <li><a href="about.html">About</a></li>--}}
 {{--            <li><a href="latest_news.html">Latest News</a></li>--}}

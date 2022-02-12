@@ -21,12 +21,18 @@ class SiteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request)
+    public function index()
     {
 
         $posts = $this->postService->getAllDescId();
         return view('site.home.index', [
             'posts' => $posts
         ]);
+    }
+
+    public function show($slug)
+    {
+        $post = $this->postService->getBySlug($slug);
+        dd($post);
     }
 }

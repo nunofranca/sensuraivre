@@ -10,7 +10,8 @@ use App\Http\Controllers\Web\UsersController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', SiteController::class)->name('site');
+Route::get('/', [SiteController::class, 'index'])->name('site');
+Route::get('/materia/{slug}', [SiteController::class, 'show'])->name('materia');
 Route::get('/login', [LoginController::class, 'formLogin'])->name('formLogin');
 Route::post('/login', [LoginController::class, 'authentication'])->name('login');
 

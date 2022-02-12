@@ -10,6 +10,8 @@ interface PostRepositoryInterface
 
     public function getAllDescId();
 
+    public function getBySlug($slug);
+
     public function update($attributes, $id);
 
     public function create($attributes);

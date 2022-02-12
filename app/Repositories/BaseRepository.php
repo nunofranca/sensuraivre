@@ -28,6 +28,11 @@ abstract class BaseRepository
         return $this->model->create($attributes);
     }
 
+    public function getBySlug($slug)
+    {
+        return $this->model->where('slug', $slug)->first();
+
+    }
     public function getById($id)
     {
         return $this->model->find($id);

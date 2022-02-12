@@ -25,6 +25,11 @@ class PostService implements PostServiceInterface
        return $this->postRepository->getById($id);
     }
 
+    public function getBySlug($slug)
+    {
+        return $this->postRepository->getBySlug($slug);
+    }
+
     public function getAllDescId()
     {
         $posts = $this->postRepository->getAllDescId();

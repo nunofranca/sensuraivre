@@ -28,7 +28,7 @@
                                                 </div>
                                                 <div class="what-cap">
                                                     <span class="color1">{{$post->category->name}}</span>
-                                                    <h4><a href="#">{{$post->title}}</a>
+                                                    <h4><a href="{{route('materia', $post['slug'])}}}">{{$post->title}}</a>
                                                     </h4>
                                                 </div>
                                             </div>

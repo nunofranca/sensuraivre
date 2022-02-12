@@ -10,9 +10,13 @@ interface PostServiceInterface
 
     public function getById($id);
 
+    public function getBySlug($slug);
+
     public function create($attributes);
 
     public function update($attributes, $id);
+
+
 
 
 }

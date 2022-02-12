@@ -18,7 +18,6 @@ class TenantTableSeed extends Seeder
     public function run()
     {
         Tenant::factory()
-            ->has(Category::factory())
             ->has(User::factory()
             )->create();
     }

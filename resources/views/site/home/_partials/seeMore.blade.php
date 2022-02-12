@@ -19,6 +19,7 @@
                                 <div class="whats-news-caption">
                                     <div class="row">
                                         @foreach($posts as $post)
+
                                             @if($loop->index > 9 and $loop->index < 14)
                                         <div class="col-lg-6 col-md-6 border-bottom mb-5">
                                             <div class="single-what-news mb-100">
@@ -28,7 +29,7 @@
                                                 </div>
                                                 <div class="what-cap">
                                                     <span class="color1">{{$post->category->name}}</span>
-                                                    <h4><a href="{{route('materia', $post['slug'])}}}">{{$post->title}}</a>
+                                                    <h4><a href="{{route('materia', $post['slug'])}}">{{$post->title}}</a>
                                                     </h4>
                                                 </div>
                                             </div>

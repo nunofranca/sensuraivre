@@ -33,6 +33,8 @@ class SiteController extends Controller
     public function show($slug)
     {
         $post = $this->postService->getBySlug($slug);
-        dd($post);
+        return view('site.materia.index', [
+            'post' => $post
+        ]);
     }
 }

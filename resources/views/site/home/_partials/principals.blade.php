@@ -11,7 +11,7 @@
                             <img src='{{url("storage/{$posts[0]->images[0]->path}")}}' alt="">
                             <div class="trend-top-cap">
                                 <span>{{$posts[0]->category->name}}</span>
-                                <h2><a href="{{route('materia', $posts[0]->slug)}}}">{{$posts[0]->title}}</a></h2>
+                                <h2><a href="{{route('materia', $posts[0]->slug)}}">{{$posts[0]->title}}</a></h2>
                             </div>
                         </div>
                     </div>
@@ -26,7 +26,7 @@
                                             <div class="trend-bottom-img mb-30">
                                                 <div class="trend-bottom-cap">
                                                     <span class="color1">{{$post->category->name}}</span>
-                                                    <h4><a href="{{route('materia', $post['slug'])}}}">{{$post->title}}</a></h4>
+                                                    <h4><a href="{{route('materia', $post['slug'])}}">{{$post->title}}</a></h4>
                                                 </div>
                                                 <img src='{{url("storage/{$post->images[0]->path}")}}'
                                                      alt="">
@@ -50,7 +50,7 @@
                             <div class="trand-right-single  d-flex">
                                 <div class="trand-right-cap">
                                     <span class="color1">{{$post->category->name}}</span>
-                                    <h4><a href="{{route('materia', $post['slug'])}}}">{{$post->title}}</a></h4>
+                                    <h4><a href="{{route('materia', $post['slug'])}}">{{$post->title}}</a></h4>
                                 </div>
                             </div>
                         @endif

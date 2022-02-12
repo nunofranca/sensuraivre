@@ -115,7 +115,7 @@
                         <div class="single-footer-caption">
                             <!-- logo -->
                             <div class="footer-logo">
-                                <a href="index.html"><img src="{{asset('assets/images/site/logo/logo2_footer.png')}}"
+                                <a href="index.html"><img width="80%" src="{{asset('assets/images/site/logo/sl.png')}}"
                                                           alt=""></a>
                             </div>
                             <div class="footer-tittle">

@@ -82,7 +82,7 @@
                         <div class="col-xl-10 col-lg-10 col-md-12 header-flex">
                             <!-- sticky -->
                             <div class="sticky-logo">
-                                <a href="index.html"><img src="{{asset('assets/images/site/logo/logo.png')}}"
+                                <a href="index.html"><img width="30%" src="{{asset('assets/images/site/logo/sl.png')}}"
                                                           alt=""></a>
                             </div>
                             @include('site.master._partials.menu')
@@ -102,7 +102,7 @@
 </header>
 
 <main>
-@yield('content')
+    @yield('content')
 </main>
 
 <footer>
@@ -120,10 +120,16 @@
                             </div>
                             <div class="footer-tittle">
                                 <div class="footer-pera">
-                                    <p>Suscipit mauris pede for con sectetuer sodales adipisci for cursus fames lectus
-                                        tempor da blandit gravida sodales Suscipit mauris pede for con sectetuer sodales
-                                        adipisci for cursus fames lectus tempor da blandit gravida sodales Suscipit
-                                        mauris pede for sectetuer.</p>
+                                    <p>O sensuralivre.com.br surge na Bahia como bandeira da democracia, com o
+                                        compromisso de informar com imparcialidade tudo o que ocorre nos bastidores da
+                                        política baiana e que, de forma direta ou indireta, interfere no desenvolvimento
+                                        de nossa sociedade. Aguerrido nesta trincheira, encara o desafio de combater
+                                        qualquer tipo de censura, num momento difícil de excessos em nossa democracia,
+                                        emanados dos mais diversos Poderes, onde o “novo normal” na era pós pandemia
+                                        traz desafios ainda maiores de bem informar e esclarecer nossos leitores sobre
+                                        as movimentações no tabuleiro da política baiana que inevitavelmente impacta na
+                                        vida de todos nós. A todos, uma boa leitura e curtam também os nossos vídeos.
+                                    </p>
                                 </div>
                             </div>
                             <!-- social -->
@@ -163,63 +169,33 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-3 col-md-5 col-sm-6">
-                    <div class="single-footer-caption mb-50 mt-60">
-                        <div class="footer-tittle">
-                            <h4>Instagram Feed</h4>
-                        </div>
-                        <div class="instagram-gellay">
-                            <ul class="insta-feed">
-                                <li><a href="#"><img src="{{asset('assets/images/site/post/instra1.jpg')}}" alt=""></a>
-                                </li>
-                                <li><a href="#"><img src="{{asset('assets/images/site/post/instra2.jpg')}}" alt=""></a>
-                                </li>
-                                <li><a href="#"><img src="{{asset('assets/images/site/post/instra3.jpg')}}" alt=""></a>
-                                </li>
-                                <li><a href="#"><img src="{{asset('assets/images/site/post/instra4.jpg')}}" alt=""></a>
-                                </li>
-                                <li><a href="#"><img src="{{asset('assets/images/site/post/instra5.jpg')}}" alt=""></a>
-                                </li>
-                                <li><a href="#"><img src="{{asset('assets/images/site/post/instra6.jpg')}}" alt=""></a>
-                                </li>
 
-                            </ul>
+                <!-- footer-bottom aera -->
+                <div class="footer-bottom-area">
+                    <div class="container">
+                        <div class="footer-border">
+                            <div class="row d-flex align-items-center justify-content-between">
+                                <div class="col-lg-6">
+                                    <div class="footer-copy-right">
+                                        <p>
+                                           Todos os direitos reservados ao SensuraLive
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="footer-menu f-right">
+                                        <ul>
+                                            <li><a href="#">Termos de uso</a></li>
+                                            <li><a href="#">Política de privacidade</a></li>
+                                            <li><a href="#">Contato</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <!-- footer-bottom aera -->
-    <div class="footer-bottom-area">
-        <div class="container">
-            <div class="footer-border">
-                <div class="row d-flex align-items-center justify-content-between">
-                    <div class="col-lg-6">
-                        <div class="footer-copy-right">
-                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-                                All rights reserved | This template is made with <i class="ti-heart"
-                                                                                    aria-hidden="true"></i> by <a
-                                    href="https://colorlib.com" target="_blank">Colorlib</a>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="footer-menu f-right">
-                            <ul>
-                                <li><a href="#">Terms of use</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Contact</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer End-->
+                <!-- Footer End-->
 </footer>
 
 

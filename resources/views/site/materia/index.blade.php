@@ -27,7 +27,7 @@
                             <div class="about-prea">
 
                                 <p class="about-pera1 mb-25">
-                                    {{$post->text}}
+                                    {!! $post->text !!}}
                                  </p>
                             </div>
 

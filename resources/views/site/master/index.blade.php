@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Sensura Livre </title>
+    <title>Sem Censura</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
@@ -82,7 +82,7 @@
                         <div class="col-xl-10 col-lg-10 col-md-12 header-flex">
                             <!-- sticky -->
                             <div class="sticky-logo">
-                                <a href="index.html"><img width="30%" src="{{asset('assets/images/site/logo/sl.png')}}"
+                                <a href="index.html"><img width="50%" src="{{asset('assets/images/site/logo/sl.png')}}"
                                                           alt=""></a>
                             </div>
                             @include('site.master._partials.menu')

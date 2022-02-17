@@ -33,7 +33,7 @@ class PostService implements PostServiceInterface
     public function getAllDescId()
     {
         $posts = $this->postRepository->getAllDescId();
-        return $posts->load('images');
+        return $posts->load('images', 'category');
     }
 
     public function create($attributes)

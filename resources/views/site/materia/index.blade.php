@@ -8,7 +8,7 @@
     <meta property="og:site_name" content="O Protagonista"/>
     <meta property="og:description" content="{{ $post->subtittle ?? '' }}"/>
     <meta property="og:image"
-          content="https://www.semcensura.com.br/storage/image/{{$post->images[0]->path}}"/>
+          content="https://www.semcensura.com.br/storage/images/{{$post->images[0]->path}}"/>
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:type" content="image/jpg">
     <meta property="og:image:type" content="image/png">

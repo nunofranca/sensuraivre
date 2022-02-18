@@ -17,7 +17,6 @@
     <meta property="og:image:height" content="408"/>
 @endsection
 @section('content')
-    {{dd($post->images[0]->path)}}
     <main>
         <!-- About US Start -->
         <div class="about-area">

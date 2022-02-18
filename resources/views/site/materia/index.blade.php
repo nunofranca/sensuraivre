@@ -1,5 +1,21 @@
 @extends('site.master.index')
 @section('title', $post->title)
+@section('metas-og')
+    <meta property="og:locale" content="pt_BR"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="https://www.semcensura/materia/{{ $post->slug }}"/>
+    <meta property="og:title" content="{{ $post->title }}"/>
+    <meta property="og:site_name" content="O Protagonista"/>
+    <meta property="og:description" content="{{ $post->subtittle ?? '' }}"/>
+    <meta property="og:image"
+          content="https://www.oprotagonistafsa.com.br/storage/{{$post->images[0]->path}}"/>
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:type" content="image/jpg">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="{{ $post->title }}"/>
+    <meta property="og:image:width" content="652"/>
+    <meta property="og:image:height" content="408"/>
+@endsection
 @section('content')
     <main>
         <!-- About US Start -->

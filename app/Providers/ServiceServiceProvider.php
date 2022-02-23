@@ -5,6 +5,8 @@ namespace App\Providers;
 
 use App\Services\Categories\CategoryService;
 use App\Services\Categories\CategoryServiceInterface;
+use App\Services\Comments\CommentService;
+use App\Services\Comments\CommentServiceInterface;
 use App\Services\Images\ImageService;
 use App\Services\Images\ImageServiceInterface;
 use App\Services\Posts\PostService;
@@ -22,7 +24,7 @@ class ServiceServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
+        $this->app->bind(CommentServiceInterface::class, CommentService::class);
         $this->app->bind(UserServiceInterface::class, UserService::class);
         $this->app->bind(PostServiceInterface::class, PostService::class);
         $this->app->bind(CategoryServiceInterface::class, CategoryService::class);

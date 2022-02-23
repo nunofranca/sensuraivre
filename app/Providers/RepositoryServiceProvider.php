@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Repositories\Categories\CategoryRepositoryEloquent;
 use App\Repositories\Categories\CategoryRepositoryInterface;
+use App\Repositories\Comments\CommentRepositoryEloquent;
+use App\Repositories\Comments\CommentRepositoryInterface;
 use App\Repositories\Images\ImageRepositoryEloquent;
 use App\Repositories\Images\ImageRepositoryService;
 use App\Repositories\Posts\PostRepositoryEloquent;
@@ -21,6 +23,7 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->bind(CommentRepositoryInterface::class, CommentRepositoryEloquent::class);
         $this->app->bind(UserRepositoryInterface::class, UserRepositoryEloquent::class);
         $this->app->bind(PostRepositoryInterface::class, PostRepositoryEloquent::class);
         $this->app->bind(CategoryRepositoryInterface::class, CategoryRepositoryEloquent::class);

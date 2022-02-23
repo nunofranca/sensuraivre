@@ -24,7 +24,6 @@ abstract class BaseRepository
     }
     public function create($attributes)
     {
-
         return $this->model->create($attributes);
     }
 

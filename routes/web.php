@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Web\CommentsController;
 use App\Http\Controllers\Web\Site\SiteController;
 use App\Http\Controllers\Web\CategoriesController;
 use App\Http\Controllers\Web\DashboardController;
@@ -38,6 +39,11 @@ Route::prefix('painel')->middleware('auth')->group(function () {
 
     Route::prefix('images')->name('images.')->group(function () {
         Route::post('/store', [ImagesController::class, 'store'])->name('store');
+    });
+
+    Route::prefix('comentarios')->name('comments.')->group(function () {
+        Route::post('/store', [CommentsController::class, 'store'])->name('store')->withoutMiddleware('auth');
+        Route::get('/', [CommentsController::class, 'index'])->name('index');
     });
 
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

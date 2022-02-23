@@ -6,7 +6,7 @@
     <meta property="og:url" content="https://www.semcensura.tv.br/materia/{{ $post->slug }}"/>
     <meta property="og:title" content="{{ $post->title }}"/>
     <meta property="og:site_name" content="O Protagonista"/>
-    <meta property="og:description" content="{{ $post->subtittle ?? '' }}"/>d .
+    <meta property="og:description" content="{{ $post->subtittle ?? '' }}"/>
     <meta property="og:image"
           content="https://www.semcensura.tv.br/storage/{{$post->images[0]->path}}"/>
     <meta property="og:image:type" content="image/jpeg">
@@ -45,64 +45,83 @@
 
                                 <p class="about-pera1 mb-25">
                                     {!! $post->text !!}
-                                 </p>
+                                </p>
                             </div>
 
-{{--                            <div class="social-share pt-30">--}}
-{{--                                <div class="section-tittle">--}}
-{{--                                    <h3 class="mr-20">Share:</h3>--}}
-{{--                                    <ul>--}}
-{{--                                        <li><a href="#"><img src="assets/img/news/icon-ins.png" alt=""></a></li>--}}
-{{--                                        <li><a href="#"><img src="assets/img/news/icon-fb.png" alt=""></a></li>--}}
-{{--                                        <li><a href="#"><img src="assets/img/news/icon-tw.png" alt=""></a></li>--}}
-{{--                                        <li><a href="#"><img src="assets/img/news/icon-yo.png" alt=""></a></li>--}}
-{{--                                    </ul>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
+
                         </div>
                         <!-- From -->
                         <div class="row">
                             <div class="col-lg-8">
-                                <form class="form-contact contact_form mb-80" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                                <form id="formComment" data-post="{{$post->slug}}">
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <textarea class="form-control w-100 error" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder="Enter Message"></textarea>
+                                                <textarea class="form-control w-100 error" name="text" id="message"
+                                                          cols="30" rows="9" onfocus="this.placeholder = ''"
+                                                          onblur="this.placeholder = 'Escreva seu comentário'"
+                                                          placeholder="Escreva seu comentário"></textarea>
                                             </div>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <input class="form-control error" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <input class="form-control error" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email">
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <input class="form-control error" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="Enter Subject">
-                                            </div>
-                                        </div>
+
                                     </div>
                                     <div class="form-group mt-3">
-                                        <button type="submit" class="button button-contactForm boxed-btn">Send</button>
+                                        <button type="submit" class="button btn-block button-contactForm boxed-btn">
+                                            Enviar comentário
+                                        </button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
 
-                        <!-- New Poster -->
-                        <div class="news-poster d-none d-lg-block">
-                            <img src="assets/img/news/news_card.jpg" alt="">
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
+        <div aria-live="polite" aria-atomic="true"  style="position: relative; min-height: 200px;">
+            <div class="toast" id="toast" style="position: absolute; top: 0; right: 0;">
+                <div class="toast-header">
+                    <img width="25%" src="{{asset('assets/images/site/logo/sl.png')}}" class="rounded mr-2" alt="...">
+                    <strong class="mr-auto">Obrigado</strong>
+                   <small>{{Carbon\Carbon::now()->format('d-m-y h:i:s')}}</small><button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="toast-body">
+                    Seu Comentário foi enviado e será avaliado
+                </div>
+            </div>
+        </div>
+
+
         <!-- About US End -->
     </main>
 
+@endsection
+@section('js')
+    <script>
+        document.querySelector('#formComment').addEventListener('submit', async function (e) {
+            e.preventDefault()
+            const slug = this.getAttribute('data-post')
+
+            const formData = new FormData(this);
+            formData.append('slug', slug)
+
+
+            await fetch('/painel/comentarios/store', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    // 'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                }
+            }).then(response => response.json()).then(res => {
+                this.reset();
+                $('#toast').toast('show')
+            })
+
+
+        })
+    </script>
 @endsection

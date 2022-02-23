@@ -6,24 +6,23 @@
     <title>@yield('title')</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="manifest" href="site.webmanifest">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
-    @yield('metas-og')
+@yield('metas-og')
 
-    <!-- CSS here -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!-- CSS here -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
 
     <link rel="stylesheet" href="{{asset('assets/css/site/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/site/ticker-style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/site/flaticon.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/site/slicknav.css')}}">
+{{--    <link rel="stylesheet" href="{{asset('assets/css/site/slicknav.css')}}">--}}
     <link rel="stylesheet" href="{{asset('assets/css/site/animate.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/site/magnific-popup.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/site/fontawesome-all.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/site/themify-icons.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/site/slick.css')}}">
+{{--    <link rel="stylesheet" href="{{asset('assets/css/site/slick.css')}}">--}}
     <link rel="stylesheet" href="{{asset('assets/css/site/nice-select.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/site/style.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -57,11 +56,10 @@
                         <div class="row d-flex justify-content-between align-items-center">
                             <div class="header-info-left">
                                 <ul>
-                                    <li><img src="{{asset('assets/images/site/icon/header_icon1.png')}}" alt="">34ºc,
-                                        Sunny
-                                    </li>
-                                    <li><img src="{{asset('assets/images/site/icon/header_icon1.png')}}" alt="">Tuesday,
-                                        18th June, 2019
+                                    <li>
+                                        {{Carbon\Carbon::parse(now())
+                                                ->locale('pt-BR')
+                                                ->isoFormat('dddd, D MMMM Y')}}
                                     </li>
                                 </ul>
                             </div>
@@ -83,7 +81,7 @@
                         <div class="col-xl-10 col-lg-10 col-md-12 header-flex">
                             <!-- sticky -->
                             <div class="sticky-logo">
-                                <a href="index.html"><img width="50%" src="{{asset('assets/images/site/logo/sl.png')}}"
+                                <a href="{{route('site')}}"><img width="50%" src="{{asset('assets/images/site/logo/sl.png')}}"
                                                           alt=""></a>
                             </div>
                             @include('site.master._partials.menu')
@@ -116,12 +114,13 @@
                         <div class="single-footer-caption">
                             <!-- logo -->
                             <div class="footer-logo">
-                                <a href="index.html"><img width="60%" src="{{asset('assets/images/site/logo/sl.png')}}"
-                                                          alt=""></a>
+                                <a href="{{route('site')}}"><img width="60%"
+                                                                 src="{{asset('assets/images/site/logo/sl.png')}}"
+                                                                 alt=""></a>
                             </div>
                             <div class="footer-tittle">
                                 <div class="footer-pera">
-                                    <p>O sensuralivre.com.br surge na Bahia como bandeira da democracia, com o
+                                    <p>O semcensura.tv.br surge na Bahia como bandeira da democracia, com o
                                         compromisso de informar com imparcialidade tudo o que ocorre nos bastidores da
                                         política baiana e que, de forma direta ou indireta, interfere no desenvolvimento
                                         de nossa sociedade. Aguerrido nesta trincheira, encara o desafio de combater
@@ -179,7 +178,7 @@
                                 <div class="col-lg-6">
                                     <div class="footer-copy-right">
                                         <p>
-                                           Todos os direitos reservados ao SensuraLive
+                                            Todos os direitos reservados ao SensuraLive
                                         </p>
                                     </div>
                                 </div>
@@ -197,6 +196,9 @@
                     </div>
                 </div>
                 <!-- Footer End-->
+            </div>
+        </div>
+    </div>
 </footer>
 
 
@@ -204,9 +206,9 @@
 <script src="{{asset('assets/js/site/modernizr-3.5.0.min.js')}}"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="{{asset('assets/js/site/bootstrap.bundle.js')}}"></script>
-<script src="{{asset('assets/js/site/jquery.slicknav.min.js')}}"></script>
+{{--<script src="{{asset('assets/js/site/jquery.slicknav.min.js')}}"></script>--}}
 <script src="{{asset('assets/js/site/owl.carousel.min.js')}}"></script>
-<script src="{{asset('assets/js/site/slick.min.js')}}"></script>
+{{--<script src="{{asset('assets/js/site/slick.min.js')}}"></script>--}}
 <script src="{{asset('assets/js/site/gijgo.min.js')}}"></script>
 <script src="{{asset('assets/js/site/wow.min.js')}}"></script>
 <script src="{{asset('assets/js/site/animated.headline.js')}}"></script>
@@ -221,8 +223,9 @@
 <script src="{{asset('assets/js/site/mail-script.js')}}"></script>
 <script src="{{asset('assets/js/site/jquery.ajaxchimp.min.js')}}"></script>
 <script src="{{asset('assets/js/site/plugins.js')}}"></script>
-<script src="{{asset('assets/js/site/main.js')}}"></script>
-<script src="{{asset('assets/js/site/main.js')}}"></script>
+{{--<script src="{{asset('assets/js/site/main.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/site/main.js')}}"></script>--}}
+@yield('js')
 
 </body>
 </html>

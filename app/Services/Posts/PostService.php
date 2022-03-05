@@ -18,27 +18,29 @@ class PostService implements PostServiceInterface
 
     public function getAll()
     {
-        return $this->postRepository->getAll();
+        return Cache::remember('posts', 120, function () {
+            return $this->postRepository->getAll()->load('images', 'category');
+        });
+
     }
 
     public function getById($id)
     {
-       return $this->postRepository->getById($id);
+        return $this->postRepository->getById($id);
     }
 
     public function getBySlug($slug)
     {
         return Cache::remember('post', 300, function () use ($slug) {
-           return $this->postRepository->getBySlug($slug)->load('images', 'category')   ;
+            return $this->postRepository->getBySlug($slug)->load('images', 'category');
         });
     }
 
     public function getAllDescId()
     {
-
-        $posts = $this->postRepository->getAllDescId();
-        return $posts->load('images', 'category');
-
+        return Cache::remember('postsHome', 120, function () {
+            return $this->postRepository->getAllDescId()->load('images', 'category');
+        });
     }
 
     public function create($attributes)

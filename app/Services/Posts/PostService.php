@@ -31,7 +31,7 @@ class PostService implements PostServiceInterface
 
     public function getBySlug($slug)
     {
-        return Cache::remember('post', 300, function () use ($slug) {
+        return Cache::remember('post.'.$slug, 300, function () use ($slug) {
             return $this->postRepository->getBySlug($slug)->load('images', 'category');
         });
     }

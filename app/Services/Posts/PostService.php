@@ -45,6 +45,7 @@ class PostService implements PostServiceInterface
 
     public function create($attributes)
     {
+        Cache::forget('postsHome');
         return $this->postRepository->create($attributes);
     }
 

@@ -4,6 +4,7 @@ namespace App\Services\Posts;
 
 use App\Repositories\Posts\PostRepositoryInterface;
 use App\Services\Images\ImageServiceInterface;
+use Illuminate\Support\Facades\Cache;
 
 class PostService implements PostServiceInterface
 {
@@ -27,13 +28,17 @@ class PostService implements PostServiceInterface
 
     public function getBySlug($slug)
     {
-        return $this->postRepository->getBySlug($slug);
+        return Cache::remember('post', 300, function () use ($slug) {
+           return $this->postRepository->getBySlug($slug)->load('images', 'category')   ;
+        });
     }
 
     public function getAllDescId()
     {
+
         $posts = $this->postRepository->getAllDescId();
         return $posts->load('images', 'category');
+
     }
 
     public function create($attributes)

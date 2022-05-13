@@ -3,25 +3,21 @@
 namespace App\Services\Posts;
 
 use App\Repositories\Posts\PostRepositoryInterface;
-use App\Services\Images\ImageServiceInterface;
 use Illuminate\Support\Facades\Cache;
 
 class PostService implements PostServiceInterface
 {
-    private $postRepository, $imageService;
+    private $postRepository;
 
-    public function __construct(PostRepositoryInterface $postRepository, ImageServiceInterface $imageService)
+    public function __construct(PostRepositoryInterface $postRepository)
     {
         $this->postRepository = $postRepository;
-        $this->imageService = $imageService;
     }
 
     public function getAll()
     {
-        return Cache::remember('posts', 120, function () {
-            return $this->postRepository->getAll()->load('images', 'category');
-        });
 
+        return $this->postRepository->getAll()->load('images', 'category');
     }
 
     public function getById($id)
@@ -31,21 +27,19 @@ class PostService implements PostServiceInterface
 
     public function getBySlug($slug)
     {
-        return Cache::remember('post.'.$slug, 300, function () use ($slug) {
-            return $this->postRepository->getBySlug($slug)->load('images', 'category');
-        });
+        return $this->postRepository->getBySlug($slug)->load('images', 'category');
+
     }
 
     public function getAllDescId()
     {
-        return Cache::remember('postsHome', 120, function () {
-            return $this->postRepository->getAllDescId()->load('images', 'category');
-        });
+        return $this->postRepository->getAllDescId()->load('images', 'category');
+
     }
 
     public function create($attributes)
     {
-        Cache::forget('postsHome');
+
         return $this->postRepository->create($attributes);
     }
 

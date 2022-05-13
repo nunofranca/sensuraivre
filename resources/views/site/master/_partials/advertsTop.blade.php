@@ -8,14 +8,7 @@
                                               alt=""></a>
                 </div>
             </div>
-            <div class="col-xl-9 col-lg-9 col-md-9">
-                <div class="header-banner f-right ">
-                    <a href="https://go.hotmart.com/T66611332E" rel="nofollow">
-                        <img src="https://imgur.com/RPrSma3.jpg" border="0" width="468" height="60" />
-                    </a>
 
-                </div>
-            </div>
         </div>
     </div>
 </div>

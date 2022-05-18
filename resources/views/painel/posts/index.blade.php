@@ -21,12 +21,12 @@
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Categoria
                                     </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Total Comentários
-                                    </th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Status
-                                    </th>
+{{--                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">--}}
+{{--                                        Total Comentários--}}
+{{--                                    </th>--}}
+{{--                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
+{{--                                        Status--}}
+{{--                                    </th>--}}
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Atualizado
                                     </th>
@@ -59,13 +59,13 @@
                                             <p class="text-xs font-weight-bold mb-0">{{$post->category->name}}</p>
 
                                         </td>
-                                        <td>
-                                            <p class="text-xs font-weight-bold mb-0">Em Breve</p>
+{{--                                        <td>--}}
+{{--                                            <p class="text-xs font-weight-bold mb-0">Em Breve</p>--}}
 
-                                        </td>
-                                        <td class="align-middle text-center text-sm">
-                                            <span class="badge badge-sm bg-gradient-success">Online</span>
-                                        </td>
+{{--                                        </td>--}}
+{{--                                        <td class="align-middle text-center text-sm">--}}
+{{--                                            <span class="badge badge-sm bg-gradient-success">Online</span>--}}
+{{--                                        </td>--}}
                                         <td class="align-middle text-center">
                                             <span class="text-secondary text-xs font-weight-bold">{{\Carbon\Carbon::parse($post->created_at)->isoFormat('LLLL')}}</span>
                                         </td>

@@ -13,7 +13,7 @@
         <div class="mb-3">
 
             <textarea name="text" id="text">
-                {{$post->title ?? old('text')}}
+                {{$post->text ?? old('text')}}
             </textarea>
         </div>
     </div>

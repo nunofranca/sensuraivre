@@ -20,7 +20,7 @@ abstract class BaseRepository
     }
     public function getAllDescId()
     {
-        return $this->model->orderByDesc('id')->limit(20)->get();
+        return $this->model->orderByDesc('id')->limit(10)->get();
     }
     public function create($attributes)
     {

@@ -63,32 +63,32 @@
 {{--                                            <p class="text-xs font-weight-bold mb-0">Em Breve</p>--}}
 
 {{--                                        </td>--}}
-{{--                                       --}}
-                                        <td class="align-middle text-cen <td class="align-middle text-center text-sm">--}}
-    {{--                                            <span class="badge badge-sm bg-gradient-success">Online</span>--}}
-    {{--                                        </td>ter">
-                                                <span class="text-secondary text-xs font-weight-bold">{{\Carbon\Carbon::parse($post->created_at)->isoFormat('LLLL')}}</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                   data-toggle="tooltip" data-original-title="Edit user">
-                                                    <div class="btn-group" role="group" aria-label="Basic example">
-                                                        <a type="button" class="btn btn-primary rounded-start" href="{{route('post.edit', $post->id)}}">Editar</a>
-                                                        <button type="button" class="btn btn-danger">Excuir</button>
+{{--                                        <td class="align-middle text-center text-sm">--}}
+{{--                                            <span class="badge badge-sm bg-gradient-success">Online</span>--}}
+{{--                                        </td>--}}
+                                        <td class="align-middle text-center">
+                                            <span class="text-secondary text-xs font-weight-bold">{{\Carbon\Carbon::parse($post->created_at)->isoFormat('LLLL')}}</span>
+                                        </td>
+                                        <td class="align-middle">
+                                            <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                               data-toggle="tooltip" data-original-title="Edit user">
+                                                <div class="btn-group" role="group" aria-label="Basic example">
+                                                    <a type="button" class="btn btn-primary rounded-start" href="{{route('post.edit', $post->id)}}">Editar</a>
+                                                    <button type="button" class="btn btn-danger">Excuir</button>
 
-                                                    </div>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
+                                                </div>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @endforeach
 
-                                    </tbody>
-                                </table>
-                            </div>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    @endsection
+    </div>
+@endsection
 

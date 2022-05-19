@@ -5,7 +5,7 @@
                 <div class="row d-flex justify-content-between">
                     <div class="col-lg-3 col-md-3">
                         <div class="section-tittle mb-30">
-                            <h3>Whats New</h3>
+                            <h3>Mais Notícias</h3>
                         </div>
                     </div>
                 </div>

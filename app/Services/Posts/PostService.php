@@ -2,6 +2,7 @@
 
 namespace App\Services\Posts;
 
+use App\Models\Post;
 use App\Repositories\Posts\PostRepositoryInterface;
 use Illuminate\Support\Facades\Cache;
 
@@ -16,9 +17,14 @@ class PostService implements PostServiceInterface
 
     public function getAll()
     {
-
         return $this->postRepository->getAll()->load('images', 'category');
     }
+
+    public function getAllForHomePage()
+    {
+        return $this->postRepository->getAllForHomePage();
+    }
+
 
     public function getById($id)
     {

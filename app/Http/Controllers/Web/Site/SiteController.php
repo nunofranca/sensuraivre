@@ -16,7 +16,7 @@ class SiteController extends Controller
     public function index()
     {
 
-        $posts = $this->postService->getAllDescId();
+        $posts = $this->postService->getAllForHomePage();
         return view('site.home.index', [
             'posts' => $posts
         ]);

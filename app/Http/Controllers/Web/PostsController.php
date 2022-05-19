@@ -33,7 +33,6 @@ class PostsController extends Controller
     {
         try {
 
-
             $posts = $this->postService->getAllDescId();
 
         } catch (\Exception $e) {

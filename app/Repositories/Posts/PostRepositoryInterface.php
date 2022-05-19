@@ -6,6 +6,8 @@ interface PostRepositoryInterface
 {
     public function getAll();
 
+    public function getAllForHomePage();
+
     public function getById($id);
 
     public function getAllDescId();
@@ -15,4 +17,5 @@ interface PostRepositoryInterface
     public function update($attributes, $id);
 
     public function create($attributes);
+
 }

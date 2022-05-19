@@ -6,6 +6,8 @@ interface PostServiceInterface
 {
     public function getAll();
 
+    public function getAllForHomePage();
+
     public function getAllDescId();
 
     public function getById($id);

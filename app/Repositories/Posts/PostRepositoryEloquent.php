@@ -13,4 +13,12 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepositoryInt
         parent::__construct($post);
     }
 
+    public function getAllForHomePage()
+    {
+        return Post::with(['images', 'category'])
+            ->limit(20)
+            ->orderByDesc('id')
+            ->get();
+    }
+
 }

@@ -22,7 +22,10 @@ class PostService implements PostServiceInterface
 
     public function getAllForHomePage()
     {
-        return $this->postRepository->getAllForHomePage();
+        return Cache::remember('postsHome', '1000000', function (){
+            return $this->postRepository->getAllForHomePage();
+        });
+
     }
 
 
@@ -45,12 +48,13 @@ class PostService implements PostServiceInterface
 
     public function create($attributes)
     {
-
+        Cache::forget('postsHome');
         return $this->postRepository->create($attributes);
     }
 
     public function update($attributes, $id)
     {
+        Cache::forget('postsHome');
         return $this->postRepository->update($attributes, $id);
     }
 }

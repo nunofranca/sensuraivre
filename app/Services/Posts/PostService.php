@@ -2,7 +2,7 @@
 
 namespace App\Services\Posts;
 
-use App\Models\Post;
+
 use App\Repositories\Posts\PostRepositoryInterface;
 use Illuminate\Support\Facades\Cache;
 

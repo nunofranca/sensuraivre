@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Cache;
 
 class PostService implements PostServiceInterface
 {
-    private $postRepository;
+    private PostRepositoryInterface $postRepository;
 
     public function __construct(PostRepositoryInterface $postRepository)
     {
@@ -22,12 +22,11 @@ class PostService implements PostServiceInterface
 
     public function getAllForHomePage()
     {
-        return Cache::remember('postsHome', '1000000', function (){
-            return $this->postRepository->getAllForHomePage();
-        });
+        return Cache::remember('postsHome', 1000000, fn () =>
+            $this->postRepository->getAllForHomePage()
+        );
 
     }
-
 
     public function getById($id)
     {
@@ -36,8 +35,9 @@ class PostService implements PostServiceInterface
 
     public function getBySlug($slug)
     {
-        return $this->postRepository->getBySlug($slug)->load('images', 'category');
-
+        return Cache::remember('post', 10000, fn () =>
+            $this->postRepository->getBySlug($slug)->load('images', 'category')
+        );
     }
 
     public function getAllDescId()
@@ -55,6 +55,7 @@ class PostService implements PostServiceInterface
     public function update($attributes, $id)
     {
         Cache::forget('postsHome');
+        Cache::forget('post');
         return $this->postRepository->update($attributes, $id);
     }
 }

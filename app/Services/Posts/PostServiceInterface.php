@@ -18,6 +18,8 @@ interface PostServiceInterface
 
     public function update($attributes, $id);
 
+    public function destroy($id);
+
 
 
 

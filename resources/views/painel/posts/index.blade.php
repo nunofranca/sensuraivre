@@ -74,7 +74,6 @@
                                                data-toggle="tooltip" data-original-title="Edit user">
                                                 <div class="btn-group" role="group" aria-label="Basic example">
                                                     <a type="button" class="btn btn-primary rounded-start" href="{{route('post.edit', $post->id)}}">Editar</a>
-                                                    <button type="button" class="btn btn-danger">Excuir</button>
 
                                                 </div>
                                             </a>

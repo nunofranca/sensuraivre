@@ -50,6 +50,9 @@ abstract class BaseRepository
     public function destroy($id)
     {
         $model = $this->model->find($id);
+        if(!$model){
+            throw new ModelNotFoundException();
+        }
         return $model->delete();
     }
 

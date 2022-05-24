@@ -18,4 +18,6 @@ interface PostRepositoryInterface
 
     public function create($attributes);
 
+    public function destroy($id);
+
 }

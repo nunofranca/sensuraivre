@@ -25,6 +25,7 @@ Route::prefix('painel')->middleware('auth')->group(function () {
         Route::post('/store', [PostsController::class, 'store'])->name('store');
         Route::get('/edit/{id}', [PostsController::class, 'edit'])->name('edit');
         Route::put('/update/{id}', [PostsController::class, 'update'])->name('update');
+        Route::delete('/destroy/{id}', [PostsController::class, 'destroy'])->name('destroy');
     });
 
     Route::prefix('categorias')->name('categories.')->group(function () {

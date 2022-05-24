@@ -11,7 +11,12 @@
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="card-header pb-0 d-flex justify-content-between">
-                        <h6>Novo Post</h6>
+                        <h6>Editar Post</h6>
+                        <form action="{{route('post.destroy', $post->id)}}" method="post">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-danger">Excluir</button>
+                        </form>
                         {{--                        <a type="button" class="btn btn-primary btn-lg" href="{{route('post.create')}}">NOVO POST</a>--}}
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">

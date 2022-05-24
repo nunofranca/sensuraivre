@@ -132,10 +132,16 @@ class PostsController extends Controller
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Exception
      */
     public function destroy($id)
     {
-        //
+        try {
+            $this->postService->destroy($id);
+            return redirect()->route('post.index');
+        }catch (\Exception $e) {
+            return $e;
+        }
+
     }
 }

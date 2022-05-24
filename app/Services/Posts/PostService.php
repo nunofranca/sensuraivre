@@ -58,5 +58,13 @@ class PostService implements PostServiceInterface
         Cache::forget('post');
         return $this->postRepository->update($attributes, $id);
     }
+
+    public function destroy($id)
+    {
+        Cache::forget('postsHome');
+        Cache::forget('post');
+
+        return $this->postRepository->destroy($id);
+    }
 }
 

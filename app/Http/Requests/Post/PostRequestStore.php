@@ -23,6 +23,7 @@ class PostRequestStore extends FormRequest
      */
     public function rules()
     {
+
         return [
             'category_id' => 'required|integer|exists:categories,id',
             'title' => 'required|string|unique:posts',

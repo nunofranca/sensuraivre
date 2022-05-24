@@ -17,14 +17,14 @@ class PostService implements PostServiceInterface
 
     public function getAll()
     {
-        return $this->postRepository->getAll()->load('images', 'category');
+        return Cache::remember('postsPainel', 10000, fn() =>
+            $this->postRepository->getAll()->load('images', 'category'));
     }
 
     public function getAllForHomePage()
     {
-        return Cache::remember('postsHome', 1000000, fn () =>
-            $this->postRepository->getAllForHomePage()
-        );
+        return Cache::remember('postsHome', 1000000, fn() =>
+            $this->postRepository->getAllForHomePage());
 
     }
 
@@ -35,9 +35,8 @@ class PostService implements PostServiceInterface
 
     public function getBySlug($slug)
     {
-        return Cache::remember('post-'.$slug, 10000, fn () =>
-            $this->postRepository->getBySlug($slug)->load('images', 'category')
-        );
+        return Cache::remember('post-' . $slug, 10000, fn() =>
+            $this->postRepository->getBySlug($slug)->load('images', 'category'));
     }
 
     public function getAllDescId()
@@ -48,14 +47,12 @@ class PostService implements PostServiceInterface
 
     public function create($attributes)
     {
-        Cache::forget('postsHome');
         return $this->postRepository->create($attributes);
     }
 
     public function update($attributes, $id)
     {
-        Cache::forget('postsHome');
-        Cache::forget('post');
+
         return $this->postRepository->update($attributes, $id);
     }
 
